@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PasswordResetRequest extends FormRequest
 {
@@ -22,7 +24,7 @@ class PasswordResetRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email'
+            'email' => ['required', 'email', Rule::exists(User::class, 'email')]
         ];
     }
 }

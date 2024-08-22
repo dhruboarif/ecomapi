@@ -16,6 +16,7 @@ Route::post('login', \App\Http\Controllers\Api\LoginController::class);
 Route::post('logout', \App\Http\Controllers\Api\LogoutController::class);
 Route::post('register', \App\Http\Controllers\Api\RegisterController::class);
 Route::post('resetpassword/email', [PasswordResetController::class, 'sendPasswordResetEmail']);
+Route::post('passwordreset', [PasswordResetController::class, 'sendPasswordResetEmail'])->name('resetpassword');
 
 //
 //Route::middleware('guest')->group(function () {
